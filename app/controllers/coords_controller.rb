@@ -2,9 +2,14 @@ require 'open-uri'
 require 'json'
 
 class CoordsController < ApplicationController
+   def new_location
+    @new_location = params[:new_lat]
+    @new_longitude = params[:new_longitude]
+   end
+
   def fetch_weather
-    @latitude = 42.0538387
-    @longitude = -87.67721
+    @latitude = params[:new_lat]
+    @longitude = params[:new_longitude]
     your_api_key = "aeda1113573c6d043a9f8e224144eb3e"
 
     # Your code goes here.
@@ -16,6 +21,5 @@ class CoordsController < ApplicationController
     @hourly_summary = parsed_data["hourly"]["summary"]
     @daily_summary = parsed_data["daily"]["summary"]
 
-  
   end
 end
