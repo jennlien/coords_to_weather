@@ -3,7 +3,7 @@ require 'json'
 
 class CoordsController < ApplicationController
    def new_location
-    @new_location = params[:new_lat]
+    @new_latitude = params[:new_lat]
     @new_longitude = params[:new_longitude]
    end
 
